@@ -19,7 +19,45 @@ console.log(urutkanAbjad('aegis')); // 'aegis'
 
 function urutkanAbjad(str) {
     // you can only write your code here!
-    return (str+'').split('').sort().join('')
+    if(!!!str || typeof str !== 'string') return ''
+
+    let hasSort = false
+    let temp = ''
+
+    let input = str
+    str = []
+    for(let i = 0;i<input.length;i++){
+        str[str.length] = input[i]
+    }
+    while(!hasSort){
+        for(let i=0;i<str.length;i++){
+            for(let j=i;j<str.length;j++){
+                if(str[i]>str[j]){
+                    temp = str[i]
+                    str[i] = str[j]
+                    str[j] = temp
+                }
+            }
+        }
+
+        for(let i=0;i<str.length;i++){
+            for(let j=i;j<str.length;j++){
+                if(str[i]>str[j]){
+                    hasSort = false
+                    break
+                }else{
+                    hasSort = true
+                }
+            }
+        }
+    }
+    input = str
+    str = ''
+    for (let i = 0;i<input.length;i++){
+        str+=input[i]
+    }
+
+    return str
 }
 
 // TEST CASES
