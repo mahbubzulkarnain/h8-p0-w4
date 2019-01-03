@@ -26,7 +26,7 @@ function ubahHuruf(kata) {
     for(let i = 0;i < kata.length; i++){
         for(let j=0;j < listKata.length;j++){
             if(kata[i] == listKata[j]){
-                result+= listKata[(j == listKata.length ? 0 : j+1 )]
+                result+= listKata[(j == listKata.length-1 ? 0 : j+1 )]
                 break;
             }
         }
